@@ -1,4 +1,4 @@
 <div>
 	<span>Hello</span>
-	<input value="${nom}"/>
+	<input type ="text" value="${nom}"/>
 </div>
