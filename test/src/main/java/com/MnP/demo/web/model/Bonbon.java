@@ -9,7 +9,7 @@ public class Bonbon {
     @Id
     private Long id;
     private String nom;
-    private String origine;
+    private String couleur;
     private Double poids;
     private String composition;
 
@@ -17,11 +17,11 @@ public class Bonbon {
         super();
     }
 
-    public Bonbon(final Long id, final String nom, final String origine, final Double poids, final String composition) {
+    public Bonbon(final Long id, final String nom, final String couleur, final Double poids, final String composition) {
         super();
         this.id = id;
         this.nom = nom;
-        this.origine = origine;
+        this.couleur = couleur;
         this.poids = poids;
         this.composition = composition;
     }
@@ -31,6 +31,13 @@ public class Bonbon {
      */
     public String getComposition() {
         return composition;
+    }
+
+    /**
+     * @return the couleur
+     */
+    public String getCouleur() {
+        return couleur;
     }
 
     /**
@@ -45,13 +52,6 @@ public class Bonbon {
      */
     public String getNom() {
         return nom;
-    }
-
-    /**
-     * @return the origine
-     */
-    public String getOrigine() {
-        return origine;
     }
 
     /**
@@ -70,6 +70,14 @@ public class Bonbon {
     }
 
     /**
+     * @param couleur
+     *            the couleur to set
+     */
+    public void setCouleur(final String couleur) {
+        this.couleur = couleur;
+    }
+
+    /**
      * @param id
      *            the id to set
      */
@@ -83,14 +91,6 @@ public class Bonbon {
      */
     public void setNom(final String nom) {
         this.nom = nom;
-    }
-
-    /**
-     * @param origine
-     *            the origine to set
-     */
-    public void setOrigine(final String origine) {
-        this.origine = origine;
     }
 
     /**
@@ -112,8 +112,8 @@ public class Bonbon {
                 + id
                 + ", nom="
                 + nom
-                + ", origine="
-                + origine
+                + ", couleur="
+                + couleur
                 + ", poids="
                 + poids
                 + ", composition="
