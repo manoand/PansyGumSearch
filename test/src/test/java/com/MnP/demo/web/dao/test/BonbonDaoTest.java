@@ -1,4 +1,4 @@
-package com.MnP.demo.web.service.test;
+package com.MnP.demo.web.dao.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -13,14 +13,14 @@ import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.MnP.demo.web.DemoApplication;
+import com.MnP.demo.web.dao.BonbonDao;
 import com.MnP.demo.web.model.Bonbon;
-import com.MnP.demo.web.service.BonbonService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = DemoApplication.class)
-public class BonbonSeriviceTest {
+public class BonbonDaoTest {
     @Autowired
-    private BonbonService bonbonService;
+    private BonbonDao bonbonDao;
 
     @Autowired
     private ElasticsearchTemplate esTemplate;
@@ -37,9 +37,9 @@ public class BonbonSeriviceTest {
     public void testDelete() {
 
         final Bonbon bonbon = new Bonbon(Long.valueOf("1234"), "bonbonTest", "rouge", Double.valueOf("1.2"), "sucre,vanille,amande");
-        bonbonService.save(bonbon);
-        bonbonService.delete(bonbon);
-        final Bonbon testBonbon = bonbonService.findOne(bonbon.getId());
+        bonbonDao.save(bonbon);
+        bonbonDao.delete(bonbon);
+        final Bonbon testBonbon = bonbonDao.findById(bonbon.getId());
         assertNull(testBonbon);
     }
 
@@ -47,24 +47,9 @@ public class BonbonSeriviceTest {
     public void testFindById() {
 
         final Bonbon bonbon = new Bonbon(Long.valueOf("1234"), "bonbonTest", "rouge", Double.valueOf("1.2"), "sucre,vanille,amande");
-        bonbonService.save(bonbon);
+        bonbonDao.save(bonbon);
 
-        final Bonbon testBonbon = bonbonService.findById(bonbon.getId());
-        assertNotNull(testBonbon.getId());
-        assertEquals(testBonbon.getId(), bonbon.getId());
-        assertEquals(testBonbon.getComposition(), bonbon.getComposition());
-        assertEquals(testBonbon.getNom(), bonbon.getNom());
-        assertEquals(testBonbon.getPoids(), bonbon.getPoids());
-        assertEquals(testBonbon.getCouleur(), bonbon.getCouleur());
-    }
-
-    @Test
-    public void testFindOne() {
-
-        final Bonbon bonbon = new Bonbon(Long.valueOf("1234"), "bonbonTest", "rouge", Double.valueOf("1.2"), "sucre,vanille,amande");
-        bonbonService.save(bonbon);
-
-        final Bonbon testBonbon = bonbonService.findOne(bonbon.getId());
+        final Bonbon testBonbon = bonbonDao.findById(bonbon.getId());
         assertNotNull(testBonbon.getId());
         assertEquals(testBonbon.getId(), bonbon.getId());
         assertEquals(testBonbon.getComposition(), bonbon.getComposition());
@@ -77,7 +62,7 @@ public class BonbonSeriviceTest {
     public void testSave() {
 
         final Bonbon bonbon = new Bonbon(Long.valueOf("1234"), "bonbonTest", "rouge", Double.valueOf("1.2"), "sucre,vanille,amande");
-        final Bonbon testBonbon = bonbonService.save(bonbon);
+        final Bonbon testBonbon = bonbonDao.save(bonbon);
 
         assertNotNull(testBonbon.getId());
         assertEquals(testBonbon.getId(), bonbon.getId());

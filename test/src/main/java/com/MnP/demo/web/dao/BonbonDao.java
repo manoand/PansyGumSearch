@@ -1,8 +1,8 @@
-package com.MnP.demo.web.service;
+package com.MnP.demo.web.dao;
 
 import com.MnP.demo.web.model.Bonbon;
 
-public interface BonbonService {
+public interface BonbonDao {
     void delete(Bonbon bonbon);
 
     Iterable<Bonbon> findAll();
@@ -10,4 +10,5 @@ public interface BonbonService {
     Bonbon findById(Long id);
 
     Bonbon save(Bonbon bonbon);
+
 }
