@@ -13,5 +13,9 @@
 	<definition name="listObject" extends="mainLayout">
 		<put-attribute name="body" value="/WEB-INF/jsp/view/listObject.jsp" />
 	</definition>
+	
+	<definition name="create" extends="mainLayout">
+		<put-attribute name="body" value="/WEB-INF/jsp/view/create.jsp" />
+	</definition>
 
 </tiles-definitions>
