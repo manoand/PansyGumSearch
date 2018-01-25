@@ -1,9 +1,12 @@
 package com.MnP.demo.web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
-public class SharedMeth {
+import com.MnP.demo.web.service.BonbonService;
 
+public class SharedMeth {
+	
     public ModelAndView initCreate() {
         final ModelAndView model = new ModelAndView();
         model.setViewName("create");
@@ -13,4 +16,6 @@ public class SharedMeth {
         model.addObject("action", "save");
         return model;
     }
+    
+
 }

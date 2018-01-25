@@ -24,9 +24,8 @@
 									<form:input type="text" class="form-control" path="poids"/>
 								</c:if>
 								<c:if test="${not empty error}">
-									<label for="name">Poids</label>
+									<label for="name">PTder</label>
 									<form:input type="text" class="form-control inputError" path="poids"/>
-									<form:input type="text" path="id" disabled="true"/>
 									<span class="textRed">${error}</span>
 								</c:if>
 							</div>
@@ -37,6 +36,7 @@
 							<div class="form-group">
 								<input type="submit" class="btn btn btn-special" value="${bouton}">
 							</div>
+							<form:hidden  path="id"/>																
 						</form:form>
 					</div>
 					<div class="col-md-5 col-md-push-1 marginTop8p">

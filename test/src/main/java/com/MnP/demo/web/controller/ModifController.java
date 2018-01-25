@@ -30,8 +30,8 @@ public class ModifController extends SharedMeth {
         if (result.hasErrors() || bonbon == null) {
             model.addObject("error", "Le format du poids doit correspondre à 1.2 par exemple.");
         } else {
-            model = new ModelAndView(new RedirectView("/listObject"));
             bonbonservice.save(bonbon);
+            model = new ModelAndView(new RedirectView("/listObject"));
         }
         return model;
     }
