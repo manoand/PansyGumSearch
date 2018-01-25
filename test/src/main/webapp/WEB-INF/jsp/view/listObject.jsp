@@ -15,6 +15,7 @@
 						<th>Couleur</th>
 						<th>Poids</th>
 						<th>Composition</th>
+						<th></th>
 					<tr>
 				</thead>
 				<tbody>
@@ -23,9 +24,11 @@
 							<td>${bonbon.nom}</td>
 							<td>${bonbon.couleur}</td>
 							<td>${bonbon.poids}</td>
-							<td>
-								${bonbon.composition}
-								<input type="hidden" value ="${bonbon.id}">
+							<td>${bonbon.composition}</td>
+							<td class="text-center">
+								<a href="/bonbon${bonbon.id}">
+									<img src="/images/picto_crayon.png" />
+								</a>
 							</td>
 						</tr>
 					</c:forEach>	

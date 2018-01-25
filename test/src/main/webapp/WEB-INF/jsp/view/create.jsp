@@ -1,5 +1,5 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
@@ -9,7 +9,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-6">
-						 <form:form method="POST" action="save" modelAttribute="bonbon">
+						 <form:form method="POST" action="${action}" modelAttribute="bonbon">
 							<div class="form-group">
 								<label for="name">Nom</label>
 								<form:input type="text" class="form-control"  path="nom"/>
@@ -19,19 +19,27 @@
 								<form:input type="text" class="form-control"  path="couleur"/>
 							</div>
 							<div class="form-group">
-								<label for="name">Poids</label>
-								<form:input type="text" class="form-control" path="poids"/>
+								<c:if test="${empty error}">
+									<label for="name">Poids</label>
+									<form:input type="text" class="form-control" path="poids"/>
+								</c:if>
+								<c:if test="${not empty error}">
+									<label for="name">Poids</label>
+									<form:input type="text" class="form-control inputError" path="poids"/>
+									<form:input type="text" path="id" disabled="true"/>
+									<span class="textRed">${error}</span>
+								</c:if>
 							</div>
 							<div class="form-group">
 								<label for="name">Composition</label>
 								<form:input type="text" class="form-control" path="composition"/>
 							</div>
 							<div class="form-group">
-								<input type="submit" class="btn btn btn-special" value="${action}">
+								<input type="submit" class="btn btn btn-special" value="${bouton}">
 							</div>
 						</form:form>
 					</div>
-					<div class="col-md-5 col-md-push-1">
+					<div class="col-md-5 col-md-push-1 marginTop8p">
 						<div class="owl-carousel owl-carousel-carousel">
 							<div class="item">
 								<div class="gtco-item">

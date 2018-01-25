@@ -3,7 +3,19 @@
 	color : #ffffff;
 }
 
+.textRed{
+	color : #ff0000;
+}
+
+.inputError{
+	border-color : #ff0000 !important;
+}
+
 /* Margin */
+
+.marginAuto{
+	margin:auto;
+}
 
 .marginLeft65px{
 	margin-left : 65px;
@@ -16,6 +28,10 @@
 .marginTop10px{
 	margin-top :10px;
 }
+
+.marginTop8p{
+    margin-top: 8%;
+}    
 
 /* Padding */
 
