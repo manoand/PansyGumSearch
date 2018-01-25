@@ -1,0 +1,48 @@
+/* Color */
+.textWhite{
+	color : #ffffff;
+}
+
+/* Margin */
+
+.marginLeft65px{
+	margin-left : 65px;
+}
+
+.marginBottom10px{
+	margin-bottom :10px;
+}
+
+.marginTop10px{
+	margin-top :10px;
+}
+
+/* Padding */
+
+.paddingTop0px{
+    padding-top: 0px!important;
+}
+
+.tab {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tab td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.tab tr:nth-child(even){background-color: #f2f2f2;}
+
+.tab {background-color: #ddd;}
+
+.tab th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left : 8px;
+    text-align: left;
+    background-color: #3dcdbc;
+    color: white;
+}
+

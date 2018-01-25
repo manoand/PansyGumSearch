@@ -25,6 +25,7 @@
 	<link rel="stylesheet" href="/css/themify-icons.css">
 	<!-- Bootstrap  -->
 	<link rel="stylesheet" href="/css/bootstrap.css">
+	<link rel="stylesheet" href="/css/pansyGum.css">
 
 	<!-- Magnific Popup -->
 	<link rel="stylesheet" href="/css/magnific-popup.css">
@@ -38,26 +39,18 @@
 
 	<!-- Modernizr JS -->
 	<script src="/js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+
 
 	</head>
 	<body>
+	<tiles:insertAttribute name="header" />		
 		
 	<div class="gtco-loader"></div>
 	
-	<div id="page">
-		<tiles:insertAttribute name="header" />		
+	<div id="content">
 		<tiles:insertAttribute name="body" />
-		<tiles:insertAttribute name="footer" />
-		
 	</div>
-
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
-	</div>
+	<tiles:insertAttribute name="footer" />
 	
 	<!-- jQuery -->
 	<script src="js/jquery.min.js"></script>
@@ -74,10 +67,9 @@
 	<!-- Magnific Popup -->
 	<script src="js/jquery.magnific-popup.min.js"></script>
 	<script src="js/magnific-popup-options.js"></script>
-	
 	<!-- Main -->
 	<script src="js/main.js"></script>
-
+	<script src="js/pansyGum.js"></script>
 	</body>
 </html>
 

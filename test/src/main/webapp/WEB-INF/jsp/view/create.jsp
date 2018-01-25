@@ -1,42 +1,103 @@
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 		<div class="gtco-section">
 			<div class="gtco-container">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2 gtco-heading text-center">
-						<h2>Get In Touch</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat enim et urna sagittis, rhoncus euismod erat tincidunt. Donec tincidunt volutpat erat.</p>
+					<div class="col-md-8 col-md-offset-2  text-center">
+						<h2>${titre}</h2>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-md-6">
-						<form action="#">
+						 <form:form method="POST" action="save" modelAttribute="bonbon">
 							<div class="form-group">
-								<label for="name">Name</label>
-								<input type="text" class="form-control" id="name">
+								<label for="name">Nom</label>
+								<form:input type="text" class="form-control"  path="nom"/>
 							</div>
 							<div class="form-group">
-								<label for="name">Email</label>
-								<input type="text" class="form-control" id="email">
+								<label for="name">Couleur</label>
+								<form:input type="text" class="form-control"  path="couleur"/>
 							</div>
 							<div class="form-group">
-								<label for="message"></label>
-								<textarea name="" id="message" cols="30" rows="10" class="form-control"></textarea>
+								<label for="name">Poids</label>
+								<form:input type="text" class="form-control" path="poids"/>
 							</div>
 							<div class="form-group">
-								<input type="submit" class="btn btn btn-special" value="Send Message">
+								<label for="name">Composition</label>
+								<form:input type="text" class="form-control" path="composition"/>
 							</div>
-						</form>
+							<div class="form-group">
+								<input type="submit" class="btn btn btn-special" value="${action}">
+							</div>
+						</form:form>
 					</div>
 					<div class="col-md-5 col-md-push-1">
-						<div class="gtco-contact-info">
-							<h3>Our Address</h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul >
-								<li class="address">198 West 21th Street, Suite 721 New York NY 10016</li>
-								<li class="phone"><a href="tel://1234567890">1235 2355 980</a></li>
-								<li class="email"><a href="#">info@yoursite.com</a></li>
-								<li class="url"><a href="#">www.yoursite.com</a></li>
-							</ul>
+						<div class="owl-carousel owl-carousel-carousel">
+							<div class="item">
+								<div class="gtco-item">
+									<a href="#"><img src="images/img_1.jpg" alt="" class="img-responsive"></a>
+									<h2><a href="#">Paper Cup</h2></a>
+									<p class="role">Web Design &amp; Mobile</p>
+								</div>
+							</div>
+							<div class="item">
+								<div class="gtco-item">
+									<a href="#"><img src="images/img_2.jpg" alt="" class="img-responsive"></a>
+									<h2><a href="#">Notepad Mockup</h2></a>
+									<p class="role">Web Design</p>
+								</div>
+							</div>
+							<div class="item">
+								<div class="gtco-item">
+									<a href="#"><img src="images/img_3.jpg" alt="" class="img-responsive"></a>
+									<h2><a href="#">Fancy 3D text</h2></a>
+									<p class="role">UI/UX</p>
+								</div>
+							</div>
+
+							<div class="item">
+								<div class="gtco-item">
+									<a href="#"><img src="images/img_1.jpg" alt="" class="img-responsive"></a>
+									<h2><a href="#">Paper Cup</h2></a>
+									<p class="role">Mobile App</p>
+								</div>
+							</div>
+							<div class="item">
+								<div class="gtco-item">
+									<a href="#"><img src="images/img_2.jpg" alt="" class="img-responsive"></a>
+									<h2><a href="#">Notepad Mockup</h2></a>
+									<p class="role">Branding</p>
+								</div>
+							</div>
+							<div class="item">
+								<div class="gtco-item">
+									<a href="#"><img src="images/img_3.jpg" alt="" class="img-responsive"></a>
+									<h2><a href="#">Fancy 3D text</h2></a>
+									<p class="role">UI/UX</p>
+								</div>
+							</div>
+
+							<div class="item">
+								<div class="gtco-item">
+									<a href="#"><img src="images/img_1.jpg" alt="" class="img-responsive"></a>
+									<h2><a href="#">Paper Cup</h2></a>
+									<p class="role">Web Design</p>
+								</div>
+							</div>
+							<div class="item">
+								<div class="gtco-item">
+									<a href="#"><img src="images/img_2.jpg" alt="" class="img-responsive"></a>
+									<h2><a href="#">Notepad Mockup</h2></a>
+									<p class="role">Branding &amp; UI</p>
+								</div>
+							</div>
+							<div class="item">
+								<div class="gtco-item">
+									<a href="#"><img src="images/img_3.jpg" alt="" class="img-responsive"></a>
+									<h2><a href="#">Fancy 3D text</h2></a>
+									<p class="role">Illustrator</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -1,4 +1,4 @@
-		<nav class="gtco-nav" role="navigation">
+		<nav id="header" class="gtco-nav " role="navigation">
 			<div class="gtco-container">
 				
 				<div class="row">
@@ -7,33 +7,16 @@
 					</div>
 					<div class="col-xs-10 text-right menu-1">
 						<ul>
-							<li><a href="index.html">Home</a></li>
+							<li><a href="/listObject">Home</a></li>
 							<li class="active"><a href="/create">Création</a></li>
-							<li class="has-dropdown">
-								<a href="services.html">Services</a>
-								<ul class="dropdown">
-									<li><a href="#">Web Design</a></li>
-									<li><a href="#">eCommerce</a></li>
-									<li><a href="#">Branding</a></li>
-									<li><a href="#">API</a></li>
-								</ul>
-							</li>
-							<li class="has-dropdown">
-								<a href="#">Dropdown</a>
-								<ul class="dropdown">
-									<li><a href="#">HTML5</a></li>
-									<li><a href="#">CSS3</a></li>
-									<li><a href="#">Sass</a></li>
-									<li><a href="#">jQuery</a></li>
-								</ul>
-							</li>
-							<li><a href="portfolio.html">Portfolio</a></li>
-							<li><a href="contact.html">Contact</a></li>
 						</ul>
 					</div>
 				</div>
 				
 			</div>
+			<header id="gtco-header" class="gtco-cover gtco-cover-xs gtco-inner marginTop10px" role="banner">
+			   <div class="col-sm-3 textWhite marginLeft65px">
+			       <span>Candy factory - ${nomEcran} </span>
+			   </div>
+			</header>
 		</nav>
-		<header id="gtco-header" class="gtco-cover gtco-cover-xs gtco-inner" role="banner">
-		</header>
