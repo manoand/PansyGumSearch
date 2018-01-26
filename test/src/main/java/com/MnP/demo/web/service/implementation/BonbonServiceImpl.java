@@ -35,16 +35,16 @@ public class BonbonServiceImpl implements BonbonService {
         return bonbonDao.save(bonbon);
     }
     
-    @PostConstruct
-    public void initBd() {
-    	bonbonDao.save(new Bonbon(Long.valueOf("1"), "Tête brulée", "rouge", Double.valueOf("1.2"), "sucre,vanille,amande"));
-    	bonbonDao.save(new Bonbon(
-            Long.valueOf("2"),
-            "Cocoa",
-            "noir,rouge,transparent",
-            Double.valueOf("1.2"),
-            "sucre,vanille,amande"));
-    	bonbonDao.save(new Bonbon(Long.valueOf("3"), "Oeuf", "blanc,jaune", Double.valueOf("1.2"), "sucre,vanille,amande"));
-    }
+//    @PostConstruct
+//    public void initBd() {
+//    	bonbonDao.save(new Bonbon(Long.valueOf("1"), "Tête brulée", "rouge", Double.valueOf("1.2"), "sucre,vanille,amande"));
+//    	bonbonDao.save(new Bonbon(
+//            Long.valueOf("2"),
+//            "Cocoa",
+//            "noir,rouge,transparent",
+//            Double.valueOf("1.2"),
+//            "sucre,vanille,amande"));
+//    	bonbonDao.save(new Bonbon(Long.valueOf("3"), "Oeuf", "blanc,jaune", Double.valueOf("1.2"), "sucre,vanille,amande"));
+//    }
 
 }
