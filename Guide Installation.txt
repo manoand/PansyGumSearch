@@ -1,0 +1,35 @@
+Installation
+
+-Télécharger Elasticsearch à cette adresse :
+https://www.elastic.co/fr/downloads/elasticsearch
+
+-Suivre les indications pour installer Elasticsearch
+
+-Dans le répertoire config du répertoire Elasticsearch, ouvrir le fichier elasticseach.yml
+
+-Dans ce fichier, ajouter le cluster-name dans la partie cluster en ajoutant la ligne : 
+cluster.name: nom-cluster
+
+-Dans la partie Network, ajouter les lignes suivantes :
+network.host: 0.0.0.0
+http.port: 9200
+
+-Créer une copie du répertoire git, en local en utilisant Git et l'adresse suivante:
+https://github.com/manoand/PansyGumSearch.git
+
+-Importer le projet dans un IDE en tant que projet maven
+
+-Dans le répertoire src/main/ressources du projet, préciser le port en changeant la valeur de server.port.
+
+-Renseigner le cluster ainsi que l'host et le port avec les paramètres suivant :
+	elasticsearch.clustername (utiliser la même valeur que dans le fichier elasticseach.yml)
+	elasticsearch.host (mettre localhost)
+	elasticsearch.port (mettre 9300)
+
+-Configurer un build maven du projet en mettant comme action : clean install 
+
+-Lancer elasticsearch (voir : https://www.elastic.co/fr/downloads/elasticsearch)
+
+-Exécuter le build maven créé précédement
+
+-Exécuter le programme en tant qu'application java (Pour eclipse, dans la vue Project Explorer, clique doit sur le projet puis sélectionner l'option "Run as" et choisir "Java application")
