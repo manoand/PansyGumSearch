@@ -9,5 +9,5 @@ public interface BonbonService {
 
     Bonbon findById(Long id);
 
-    Bonbon save(Bonbon bonbon);
+    void save(Bonbon bonbon);
 }

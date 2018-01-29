@@ -1,12 +1,7 @@
 package com.MnP.demo.web.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.elasticsearch.annotations.Document;
-
-@Document(indexName = "table", type = "bonbon")
 public class Bonbon {
 
-    @Id
     private Long id;
     private String nom;
     private String couleur;
@@ -103,7 +98,7 @@ public class Bonbon {
 
     /*
      * (non-Javadoc)
-     * 
+     *
      * @see java.lang.Object#toString()
      */
     @Override

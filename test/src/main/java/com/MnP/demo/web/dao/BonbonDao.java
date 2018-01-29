@@ -9,6 +9,6 @@ public interface BonbonDao {
 
     Bonbon findById(Long id);
 
-    Bonbon save(Bonbon bonbon);
+    void save(Bonbon bonbon);
 
 }
