@@ -32,4 +32,21 @@ public class BonbonDaoTest {
         assertEquals(testBonbon.getPoids(), bonbon.getPoids());
         assertEquals(testBonbon.getCouleur(), bonbon.getCouleur());
     }
+
+    @Test
+    public void testUpdate() {
+        final Bonbon bonbon = new Bonbon(Long.valueOf("456"), "bonbonTest", "bleu", Double.valueOf("5.3"), "sucre,vanille,amande");
+        bonbonDao.save(bonbon);
+        bonbon.setComposition("beurre,bacon,babouin");
+        bonbonDao.update(bonbon);
+        final Bonbon testBonbon = bonbonDao.findById(bonbon.getId());
+
+        bonbonDao.update(bonbon);
+        assertNotNull(testBonbon.getId());
+        assertEquals(testBonbon.getId(), bonbon.getId());
+        assertEquals(testBonbon.getComposition(), "beurre,bacon,babouin");
+        assertEquals(testBonbon.getNom(), bonbon.getNom());
+        assertEquals(testBonbon.getPoids(), bonbon.getPoids());
+        assertEquals(testBonbon.getCouleur(), bonbon.getCouleur());
+    }
 }

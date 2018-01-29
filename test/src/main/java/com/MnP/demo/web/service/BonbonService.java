@@ -10,4 +10,6 @@ public interface BonbonService {
     Bonbon findById(Long id);
 
     void save(Bonbon bonbon);
+
+    void update(Bonbon bonbon);
 }

@@ -34,13 +34,18 @@ public class BonbonServiceImpl implements BonbonService {
     public void initBd() {
         bonbonDao.save(new Bonbon(Long.valueOf("1"), "Tête brulée", "rouge", Double.valueOf("3.8"), "sucre,vanille,amande"));
         bonbonDao
-        .save(new Bonbon(Long.valueOf("2"), "Cocoa", "noir,rouge,transparent", Double.valueOf("5.25"), "sucre,vanille,amande"));
+            .save(new Bonbon(Long.valueOf("2"), "Cocoa", "noir,rouge,transparent", Double.valueOf("5.25"), "sucre,vanille,amande"));
         bonbonDao.save(new Bonbon(Long.valueOf("3"), "Oeuf", "blanc,jaune", Double.valueOf("1.02"), "sucre,vanille,amande"));
     }
 
     @Override
     public void save(final Bonbon bonbon) {
         bonbonDao.save(bonbon);
+    }
+
+    @Override
+    public void update(final Bonbon bonbon) {
+        bonbonDao.update(bonbon);
     }
 
 }

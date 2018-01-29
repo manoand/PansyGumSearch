@@ -11,4 +11,6 @@ public interface BonbonDao {
 
     void save(Bonbon bonbon);
 
+    void update(Bonbon bonbon);
+
 }

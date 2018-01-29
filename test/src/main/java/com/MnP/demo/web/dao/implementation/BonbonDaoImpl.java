@@ -11,6 +11,7 @@ import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
+import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.common.xcontent.XContentType;
@@ -111,11 +112,6 @@ public class BonbonDaoImpl implements BonbonDao {
         return res;
     }
 
-    // @Autowired
-    // public void setBookRepository(final BonbonRepository bonbonRepository) {
-    // close();
-    // }
-
     @Override
     public void save(final Bonbon bonbon) {
         final HttpHost tab[] = { new HttpHost("localhost", 9200, "http"), new HttpHost("localhost", 9201, "http") };
@@ -144,6 +140,49 @@ public class BonbonDaoImpl implements BonbonDao {
         try {
             client.index(request);
 
+        } catch (final IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            try {
+                client.close();
+            } catch (final IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // @Autowired
+    // public void setBookRepository(final BonbonRepository bonbonRepository) {
+    // close();
+    // }
+
+    public void update(final Bonbon bonbon) {
+        final HttpHost tab[] = { new HttpHost("localhost", 9200, "http"), new HttpHost("localhost", 9201, "http") };
+        final RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(tab));
+        final UpdateRequest request = new UpdateRequest("table", "bonbon", bonbon.getId().toString());
+        final String jsonString =
+                "{"
+                        + "\"id\":\""
+                        + bonbon.getId()
+                        + "\","
+                        + "\"nom\":\""
+                        + bonbon.getNom()
+                        + "\","
+                        + "\"couleur\":\""
+                        + bonbon.getCouleur()
+                        + "\","
+                        + "\"poids\":\""
+                        + bonbon.getPoids()
+                        + "\","
+                        + "\"composition\":\""
+                        + bonbon.getComposition()
+                        + "\""
+                        + "}";
+        request.doc(jsonString, XContentType.JSON);
+        try {
+            client.update(request);
         } catch (final IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
