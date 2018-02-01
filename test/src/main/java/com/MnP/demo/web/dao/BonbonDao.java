@@ -1,13 +1,15 @@
 package com.MnP.demo.web.dao;
 
+import java.util.List;
+
 import com.MnP.demo.web.model.Bonbon;
 
 public interface BonbonDao {
-    void delete(Bonbon bonbon);
+    void delete(String id);
 
-    Iterable<Bonbon> findAll();
+    List<Bonbon> findAll();
 
-    Bonbon findById(Long id);
+    Bonbon findById(String id);
 
     void save(Bonbon bonbon);
 

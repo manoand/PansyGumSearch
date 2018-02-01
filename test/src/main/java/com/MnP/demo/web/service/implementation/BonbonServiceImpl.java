@@ -1,5 +1,7 @@
 package com.MnP.demo.web.service.implementation;
 
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,26 +18,26 @@ public class BonbonServiceImpl implements BonbonService {
     BonbonDao bonbonDao;
 
     @Override
-    public void delete(final Bonbon bonbon) {
-        bonbonDao.delete(bonbon);
+    public void delete(final String id) {
+        bonbonDao.delete(id);
     }
 
     @Override
-    public Iterable<Bonbon> findAll() {
+    public List<Bonbon> findAll() {
         return bonbonDao.findAll();
     }
 
     @Override
-    public Bonbon findById(final Long id) {
+    public Bonbon findById(final String id) {
         return bonbonDao.findById(id);
     }
 
     @PostConstruct
     public void initBd() {
-        bonbonDao.save(new Bonbon(Long.valueOf("1"), "Tête brulée", "rouge", Double.valueOf("3.8"), "sucre,vanille,amande"));
+        bonbonDao.save(new Bonbon("1", "Tête brulée", "rouge", Double.valueOf("3.8"), "sucre,vanille,amande"));
         bonbonDao
-            .save(new Bonbon(Long.valueOf("2"), "Cocoa", "noir,rouge,transparent", Double.valueOf("5.25"), "sucre,vanille,amande"));
-        bonbonDao.save(new Bonbon(Long.valueOf("3"), "Oeuf", "blanc,jaune", Double.valueOf("1.02"), "sucre,vanille,amande"));
+            .save(new Bonbon("2", "Cocoa", "noir,rouge,transparent", Double.valueOf("5.25"), "sucre,vanille,amande"));
+        bonbonDao.save(new Bonbon("3", "Oeuf", "blanc,jaune", Double.valueOf("1.02"), "sucre,vanille,amande"));
     }
 
     @Override

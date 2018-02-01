@@ -2,7 +2,7 @@ package com.MnP.demo.web.model;
 
 public class Bonbon {
 
-    private Long id;
+    private String id;
     private String nom;
     private String couleur;
     private Double poids;
@@ -12,7 +12,7 @@ public class Bonbon {
         super();
     }
 
-    public Bonbon(final Long id, final String nom, final String couleur, final Double poids, final String composition) {
+    public Bonbon(final String id, final String nom, final String couleur, final Double poids, final String composition) {
         super();
         this.id = id;
         this.nom = nom;
@@ -38,7 +38,7 @@ public class Bonbon {
     /**
      * @return the id
      */
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
@@ -76,7 +76,7 @@ public class Bonbon {
      * @param id
      *            the id to set
      */
-    public void setId(final Long id) {
+    public void setId(final String id) {
         this.id = id;
     }
 

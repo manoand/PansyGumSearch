@@ -29,7 +29,7 @@ public class CreateController extends SharedMeth {
             model.addObject("error", "Le format du poids doit correspondre à 1.2 par exemple.");
         } else {
             model = new ModelAndView(new RedirectView("/listObject"));
-            bonbon.setId(new Date().getTime());
+            bonbon.setId(new Date().toString().replaceAll(" ", ""));
             bonbonservice.save(bonbon);
         }
         return model;

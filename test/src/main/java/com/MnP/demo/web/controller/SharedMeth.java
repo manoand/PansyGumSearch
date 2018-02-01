@@ -5,7 +5,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.MnP.demo.web.service.BonbonService;
 
+
 public class SharedMeth {
+	
+	@Autowired
+	BonbonService bonbonService;
 	
     public ModelAndView initCreate() {
         final ModelAndView model = new ModelAndView();
@@ -15,6 +19,15 @@ public class SharedMeth {
         model.addObject("bouton", "Créer");
         model.addObject("action", "save");
         return model;
+    }
+    
+    public ModelAndView initListObj() {
+        final ModelAndView model = new ModelAndView();
+        model.setViewName("listObject");
+        model.addObject("nomEcran", "Accueil");
+        model.addObject("listBonbon", bonbonService.findAll());
+        return model;
+
     }
     
 
