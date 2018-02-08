@@ -1,9 +1,11 @@
 package com.MnP.demo.web.service.implementation;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 
+import org.elasticsearch.client.RestHighLevelClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +38,7 @@ public class BonbonServiceImpl implements BonbonService {
     public void initBd() {
         bonbonDao.save(new Bonbon("1", "Tête brulée", "rouge", Double.valueOf("3.8"), "sucre,vanille,amande"));
         bonbonDao
-            .save(new Bonbon("2", "Cocoa", "noir,rouge,transparent", Double.valueOf("5.25"), "sucre,vanille,amande"));
+            .save(new Bonbon("2", "Coca Cola", "noir,rouge,transparent", Double.valueOf("5.25"), "sucre,vanille,amande"));
         bonbonDao.save(new Bonbon("3", "Oeuf", "blanc,jaune", Double.valueOf("1.02"), "sucre,vanille,amande"));
     }
 
@@ -48,6 +50,16 @@ public class BonbonServiceImpl implements BonbonService {
     @Override
     public void update(final Bonbon bonbon) {
         bonbonDao.update(bonbon);
+    }
+    
+    @Override
+    public void closeClient(RestHighLevelClient client) {
+        try {
+            client.close();
+        } catch (final IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
 }

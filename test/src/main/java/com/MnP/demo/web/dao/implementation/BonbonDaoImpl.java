@@ -18,10 +18,12 @@ import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.common.xcontent.XContentType;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.MnP.demo.web.dao.BonbonDao;
 import com.MnP.demo.web.model.Bonbon;
+import com.MnP.demo.web.service.BonbonService;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -30,11 +32,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class BonbonDaoImpl implements BonbonDao {
 
     private static Logger LOGGER = Logger.getLogger(BonbonDaoImpl.class);
+    private final HttpHost tab[] = { new HttpHost("localhost", 9200, "http"), new HttpHost("localhost", 9201, "http") };
+    private final RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(tab));
 
+    @Autowired
+    BonbonService bonbonService;
+    
     @Override
     public void delete(final String id) {
-        final HttpHost tab[] = { new HttpHost("localhost", 9200, "http"), new HttpHost("localhost", 9201, "http") };
-        final RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(tab));
         DeleteRequest request = new DeleteRequest("table", "bonbon",id);
         try {
 			client.delete(request);
@@ -42,19 +47,12 @@ public class BonbonDaoImpl implements BonbonDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
-            try {
-                client.close();
-            } catch (final IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+        	bonbonService.closeClient(client);
         }
     }
 
     @Override
     public List<Bonbon> findAll() {
-        final HttpHost tab[] = { new HttpHost("localhost", 9200, "http"), new HttpHost("localhost", 9201, "http") };
-        final RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(tab));
         final SearchRequest searchRequest = new SearchRequest("table");
         final ObjectMapper mapper = new ObjectMapper();
 
@@ -68,12 +66,7 @@ public class BonbonDaoImpl implements BonbonDao {
             // TODO Auto-generated catch block
             e.printStackTrace();
         } finally {
-            try {
-                client.close();
-            } catch (final IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+        	bonbonService.closeClient(client);
         }
         if (searchResponse != null) {
             searchHits = searchResponse.getHits();
@@ -94,8 +87,6 @@ public class BonbonDaoImpl implements BonbonDao {
 
     @Override
     public Bonbon findById(final String id) {
-        final HttpHost tab[] = { new HttpHost("localhost", 9200, "http"), new HttpHost("localhost", 9201, "http") };
-        final RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(tab));
         final ObjectMapper mapper = new ObjectMapper();
 
         Bonbon res = null;
@@ -118,20 +109,14 @@ public class BonbonDaoImpl implements BonbonDao {
             // TODO Auto-generated catch block
             e.printStackTrace();
         } finally {
-            try {
-                client.close();
-            } catch (final IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+        	bonbonService.closeClient(client);
         }
         return res;
     }
 
     @Override
     public void save(final Bonbon bonbon) {
-        final HttpHost tab[] = { new HttpHost("localhost", 9200, "http"), new HttpHost("localhost", 9201, "http") };
-        final RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(tab));
+
         final String jsonString =
                 "{"
                         + "\"id\":\""
@@ -160,23 +145,11 @@ public class BonbonDaoImpl implements BonbonDao {
             // TODO Auto-generated catch block
             e.printStackTrace();
         } finally {
-            try {
-                client.close();
-            } catch (final IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+        	bonbonService.closeClient(client);
         }
     }
 
-    // @Autowired
-    // public void setBookRepository(final BonbonRepository bonbonRepository) {
-    // close();
-    // }
-
     public void update(final Bonbon bonbon) {
-        final HttpHost tab[] = { new HttpHost("localhost", 9200, "http"), new HttpHost("localhost", 9201, "http") };
-        final RestHighLevelClient client = new RestHighLevelClient(RestClient.builder(tab));
         final UpdateRequest request = new UpdateRequest("table", "bonbon", bonbon.getId());
         final String jsonString =
                 "{"
@@ -203,12 +176,7 @@ public class BonbonDaoImpl implements BonbonDao {
             // TODO Auto-generated catch block
             e.printStackTrace();
         } finally {
-            try {
-                client.close();
-            } catch (final IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
+        	bonbonService.closeClient(client);
         }
     }
 }
