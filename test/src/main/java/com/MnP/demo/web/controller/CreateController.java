@@ -20,7 +20,7 @@ import com.MnP.demo.web.service.BonbonService;
 public class CreateController extends SharedMeth {
 
     @Autowired
-    BonbonService bonbonservice;
+    private BonbonService bonbonservice;
 
     @PostMapping("/save")
     public ModelAndView creation(@Valid @ModelAttribute("bonbon") final Bonbon bonbon, final BindingResult result) {

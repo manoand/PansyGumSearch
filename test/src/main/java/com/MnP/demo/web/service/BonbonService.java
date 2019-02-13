@@ -1,21 +1,60 @@
 package com.MnP.demo.web.service;
 
+import java.io.IOException;
 import java.util.List;
 
-import org.elasticsearch.client.RestHighLevelClient;
+import javax.annotation.PostConstruct;
 
+import org.elasticsearch.client.RestHighLevelClient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import com.MnP.demo.web.dao.BonbonDao;
 import com.MnP.demo.web.model.Bonbon;
 
-public interface BonbonService {
-    void delete(String id);
 
-    List<Bonbon> findAll();
+@Service
+public class BonbonService  {
 
-    Bonbon findById(String id);
+    @Autowired
+    private BonbonDao bonbonDao;
 
-    void save(Bonbon bonbon);
+    public void delete(final String id) {
+        bonbonDao.delete(id);
+    }
 
-    void update(Bonbon bonbon);
+    public List<Bonbon> findAll() {
+        return bonbonDao.findAll();
+    }
+
+    public Bonbon findById(final String id) {
+        return bonbonDao.findById(id);
+    }
+
+    @PostConstruct
+    public void initBd() {
+        bonbonDao.save(new Bonbon("1", "Tête brulée", "rouge", Double.valueOf("3.8"), "sucre,vanille,amande"));
+        bonbonDao
+            .save(new Bonbon("2", "Coca Cola", "noir,rouge,transparent", Double.valueOf("5.25"), "sucre,vanille,amande"));
+        bonbonDao.save(new Bonbon("3", "Oeuf", "blanc,jaune", Double.valueOf("1.02"), "sucre,vanille,amande"));
+    }
+
+    public void save(final Bonbon bonbon) {
+        bonbonDao.save(bonbon);
+    }
+
+    public void update(final Bonbon bonbon) {
+        bonbonDao.update(bonbon);
+    }
     
-    void closeClient(RestHighLevelClient client);
+    public void closeClient(RestHighLevelClient client) {
+        try {
+            client.close();
+        } catch (final IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+
 }

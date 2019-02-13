@@ -14,7 +14,7 @@ import com.MnP.demo.web.service.BonbonService;
 public class ListObjectController extends SharedMeth{
 
     @Autowired
-    BonbonService bonbonService;
+    private BonbonService bonbonService;
 
     @GetMapping("/listObject")
     public ModelAndView mainPage() {
